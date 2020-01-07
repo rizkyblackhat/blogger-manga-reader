@@ -1,5 +1,5 @@
 //////////////////////////////////////
-// Manga Reader for blogger 1.2
+// Manga Reader for blogger 1.3
 // Compiled Javascript (from any resource)
 // License Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
 // Free Copy, Free Use, Free Modification, Give proper credit
