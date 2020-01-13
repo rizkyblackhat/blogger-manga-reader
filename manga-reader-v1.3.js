@@ -112,6 +112,28 @@ function showLast() {
   showpage(glbCurrentpage)
 }
 
+// TEST UPDATE FEATURE //
+function checkReadMode(){
+  if (FORM_DATA["scrollMode"] == "true") {
+    scrollpage();
+  }else{
+    initpage();
+  }
+}
+
+function scrollpage(){
+  // alert("Scroll Page-desu!");
+  var pageLocation = getObjectByID(pictureID);
+  var i;
+
+  for (let el of document.querySelectorAll('.mnga_pg')) el.style.visibility = 'hidden';
+  for(i=0; i<pages.length; i++){
+    pageLocation.innerHTML += '<img src=\"'+pages[i]+'\" >';
+    pageLocation.innerHTML += '<br>';
+  }
+}
+// TEST UPDATE FEATURE //
+
 function initpage() {
   var pageLocation = getObjectByID(pictureID);
   var imgString = '';
@@ -138,6 +160,7 @@ function initpage() {
     var pageCaption = getObjectByID(captionID);
     pageCaption.innerHTML = captions[glbCurrentpage - 1]
   }
+  
   if (showIndex == true) {
     buildIndex()
   }
@@ -207,6 +230,18 @@ if (FORM_DATA["slideMode"] == "true") {
   slideMode = Boolean(true);
   slideDelay = FORM_DATA["slideDelay"]
 }
+
+// TEST UPDATE FEATURE //
+function enableScrollMode(){
+  //alert("Test");
+  var theURL = "" + this.location;
+  if (theURL.indexOf("?") > 0) {
+    theURL = theURL.substring(0, theURL.indexOf("?"))
+  }
+  theURL += "?scrollMode=true";
+  this.location = theURL;
+}
+// TEST UPDATE FEATURE //
 
 function omvKeyPressed(e) {
   var keyCode = 0;
