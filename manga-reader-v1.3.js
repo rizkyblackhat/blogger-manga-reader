@@ -132,6 +132,25 @@ function scrollpage(){
     pageLocation.innerHTML += '<br>';
   }
 }
+
+function buildControl(){
+  var prevString = '';
+  var nextString = '';
+  var prevs = document.getElementsByClassName('manga_button-prev');
+  var nexts = document.getElementsByClassName('manga_button-next');
+
+  prevString = "<a class='manga_page-button' href='javascript:void(showPrevious());'> <i class='fa fa-caret-left'></i> Prev</a>";
+  nextString = "<a class='manga_page-button' href='javascript:void(showNext());'> Next <i class='fa fa-caret-right'></i> </a>";
+
+  for (var i = 0; i < prevs.length; ++i) {
+    var prev = prevs[i];  
+    prev.innerHTML = prevString;
+  }
+  for (var i = 0; i < nexts.length; ++i) {
+    var next = nexts[i];  
+    next.innerHTML = nextString;
+  }
+}
 // TEST UPDATE FEATURE //
 
 function initpage() {
@@ -170,6 +189,7 @@ function initpage() {
   if (slideMode == true) {
     glbSlideTimer = setTimeout('showNext();', (slideDelay * 1000))
   }
+  buildControl();
 }
 
 function cache(pageID) {
